@@ -17,12 +17,12 @@ class AddUser extends Migration
         ],
         'email' => [
             'type' => 'VARCHAR',
-            'inique' => true,
-            'constraint' => 255,  
+            'unique' => true,
+            'constraint' => '255',  
         ],
         'password' => [
             'type' => 'VARCHAR',
-            'constraint' => 255,
+            'constraint' => '255',
         ],
         'created_at' => [
             'type' => 'TIMESTAMP',

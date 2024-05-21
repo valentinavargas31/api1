@@ -5,9 +5,8 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use Exception;
 use Firebase\JWT\JWT;
-use Firebase\JWT\key;
+use Firebase\JWT\Key;
 
 class AuthFilter implements FilterInterface
 {
@@ -29,7 +28,7 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
     $key = getenv('JWT_SECRET');
-    $header = $request->getHeaderLine("Authorization");
+    $header = $request->getHeader("Authorization");
     $token = null;
 
     //extract the token from the header
@@ -39,10 +38,10 @@ class AuthFilter implements FilterInterface
         }
     }
     //check if token is null or empty
-    if (is_null($token)|| empty($token)){
+    if (is_null($token) || empty($token)){
         $response = service('response');
-        $response->setBody('Access danied');
-        $response->setStatuscode(401);
+        $response->setBody('Access denied');
+        $response->setStatusCode(401);
         return $response;
     }
     try {
@@ -50,8 +49,8 @@ class AuthFilter implements FilterInterface
         $decoded = JWT::decode($token, new Key($key, 'HS256'));
     } catch (Exception $ex) {
     $response = service('response');
-    $response->setBody('Acces danied');
-    $response->setStatuscode(401);
+    $response->setBody('Acces denied');
+    $response->setStatusCode(401);
     return $response;
     }
     }

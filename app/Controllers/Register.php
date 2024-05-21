@@ -1,6 +1,6 @@
 <?php 
 
-namespace app\controllers;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\API\ResponseTrait;
@@ -13,9 +13,9 @@ Class Register extends BaseController
     public function index()
     {
         $rules = [
-            'email' => ['rules'=> 'required|min_length[4]|max_length[255]valid_email|is_unique[users.email]'],
-            'password' => ['rules'=> 'required|min_length [8]|max_length [255]'],
-            'confirm_password' => ['label' => 'confirm password', 'rules'=> 'matches[password]']
+            'email' => ['rules'=> 'required|min_length[4]|max_length[255]|valid_email|is_unique[users.email]'],
+                'password' => ['rules' => 'required|min_length[8]|max_length[255]'],
+                'confirm_password' => ['label' => 'confirm password', 'rules' => 'matches[password]']
         ];
     if($this->validate($rules)){
         $model = new UserModel();
@@ -32,5 +32,5 @@ Class Register extends BaseController
         ];
         return $this->fail($response , 409);
  }
-  }
+}
 }

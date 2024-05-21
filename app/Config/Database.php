@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
+        'hostname'     => '127.0.0.1',
         'username'     => 'root',
         'password'     => '',
         'database'     => 'api_database',
@@ -158,9 +158,9 @@ class Database extends Config
     /**
      * This database connection is used when running PHPUnit database tests.
      *
-     * @var array<string, mixed>
+       *@var array<string, mixed>
      */
-    public array $tests = [
+   public array $tests = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',
         'username'    => '',

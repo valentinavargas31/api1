@@ -9,7 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
-    $routes->post("login", "login::index");
+    $routes->post("login", "Login::index");
     $routes->get("users", "User::index", ['filter' => 'authFilter']);
 });
 

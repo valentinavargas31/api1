@@ -1,11 +1,11 @@
 <?php
-namespace app\controllers;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\UserModel;
 
-Class User extends BaseController
+class User extends BaseController
 {
     use ResponseTrait;
 
