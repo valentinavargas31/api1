@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => '127.0.0.1',
         'username'     => 'root',
         'password'     => '',
-        'database'     => 'api_database',
+        'database'     => 'decorarte_database',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
